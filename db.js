@@ -7,6 +7,8 @@ const Evalidate = require("email-validator");
 const Pvalidate = require("password-validator");
 const cheerio = require("cheerio");
 const fs = require("fs");
+const hostname = 'localhost';
+const port = 3000;
 
 var inp_name,inp_pass,inp_email;
 var schema1 = new Pvalidate();
@@ -162,4 +164,6 @@ app.get("/Chat/" , async function(req,res){
 
 //admin code
 
-app.listen(3000);
+app.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+  });
